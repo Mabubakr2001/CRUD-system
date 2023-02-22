@@ -129,43 +129,17 @@ svg {
   justify-content: space-between;
 }
 
-.search {
-  display: flex;
+.search-input {
   border: 1px solid #fff;
   border-radius: 5px;
   height: 50px;
-}
-
-.search-input {
-  width: 75%;
-  height: 100%;
+  /* width: 50%;
+  margin: 0 auto; */
   background-color: transparent;
   outline: none;
   padding: 10px 20px;
-  border: none;
   font-size: 1.2rem;
   color: #fff;
-}
-
-.search-btn {
-  width: 25%;
-  height: 100%;
-  border: none;
-  outline: none;
-  border-radius: 0 5px 5px 0;
-  font-size: 1.2rem;
-  color: #fff;
-  background-color: #228c22;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.search-btn:hover {
-  width: 30%;
-  background-color: #1c711c;
 }
 
 .search-by {
