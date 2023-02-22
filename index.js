@@ -126,7 +126,6 @@ function createNewProduct(fromLocalStorage = false, productInfoArr) {
         taxes: productTaxes !== "" ? productTaxes : "0",
         ads: productAds !== "" ? productAds : "0",
         discount: productDiscount !== "" ? productDiscount : "0",
-        // count: productCount,
         category: productCategory,
         totalPrice: totalPriceSpot.textContent,
       });
