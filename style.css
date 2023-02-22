@@ -203,19 +203,38 @@ svg {
   border-radius: 5px;
   background-color: transparent;
   color: #fff;
-  background-color: #228c22;
+  background-color: red;
   cursor: pointer;
   transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-all-btn > svg {
+  margin-right: 5px;
+}
+
+.all-products-num {
+  margin-left: 5px;
 }
 
 .delete-all-btn:hover {
-  background-color: #1c711c;
+  background-color: rgb(199, 2, 2);
 }
 
 .products-table {
   margin: 1.5rem 0;
   width: 100%;
   border-spacing: 0 10px;
+}
+
+tr[data-visibililty="visible"] {
+  display: block;
+}
+
+tr[data-visibility="hidden"] {
+  display: none;
 }
 
 td {
@@ -275,4 +294,11 @@ thead > tr > td {
   background-color: #fff;
   color: #0d1117;
   border: 1px solid #000 !important;
+}
+
+.error {
+  margin: 1rem 0 -1rem;
+  color: red;
+  text-align: center;
+  font-size: 1.2rem;
 }

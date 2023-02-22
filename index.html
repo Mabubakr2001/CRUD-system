@@ -16,20 +16,45 @@
     <div class="app-container">
       <form class="create-product" autocomplete="off">
         <input type="text" value="" placeholder="Title" class="input-title" />
-        <input type="number" value="" placeholder="Price" class="input-price" />
-        <input type="number" value="" placeholder="Taxes" class="input-taxes" />
-        <input type="number" value="" placeholder="Ads" class="input-ads" />
+        <input
+          type="number"
+          value=""
+          placeholder="Price"
+          class="input-price"
+          min="0"
+        />
+        <input
+          type="number"
+          value=""
+          placeholder="Taxes"
+          class="input-taxes"
+          min="0"
+        />
+        <input
+          type="number"
+          value=""
+          placeholder="Ads"
+          class="input-ads"
+          min="0"
+        />
         <input
           type="number"
           value=""
           placeholder="Discount"
           class="input-discount"
+          min="0"
         />
         <div class="total-price-create">
           Total:
-          <span class="total-price-create-amount">5,000,000,000</span>
+          <span class="total-price-create-amount"></span>
         </div>
-        <input type="number" value="" placeholder="Count" class="input-count" />
+        <input
+          type="number"
+          value=""
+          placeholder="Count"
+          class="input-count"
+          min="0"
+        />
         <input
           type="text"
           value=""
@@ -68,16 +93,10 @@
         <div class="search-by">
           <h2>Search by</h2>
           <div class="search-options">
-            <div class="search-option">
-              <input
-                type="radio"
-                value="normal"
-                id="nor"
-                name="option"
-                checked
-              />
+            <!-- <div class="search-option">
+              <input type="radio" value="normal" id="nor" name="option" />
               <label for="nor">Normal</label>
-            </div>
+            </div> -->
             <div class="search-option">
               <input type="radio" value="title" id="tit" name="option" />
               <label for="tit">Title</label>
@@ -87,13 +106,40 @@
               <label for="pri">Price</label>
             </div>
             <div class="search-option">
+              <input type="radio" value="taxes" id="tax" name="option" />
+              <label for="tax">Taxes</label>
+            </div>
+            <div class="search-option">
+              <input type="radio" value="ads" id="ads" name="option" />
+              <label for="ads">Ads</label>
+            </div>
+            <div class="search-option">
+              <input type="radio" value="discount" id="dis" name="option" />
+              <label for="dis">Discount</label>
+            </div>
+            <div class="search-option">
               <input type="radio" value="category" id="cat" name="option" />
               <label for="cat">Category</label>
+            </div>
+            <div class="search-option">
+              <input type="radio" value="total" id="tot" name="option" />
+              <label for="tot">Total</label>
             </div>
           </div>
         </div>
         <button class="delete-all-btn" title="Delete all products">
-          Delete all <span class="all-products-num">(15)</span>
+          <svg
+            width="25px"
+            height="25px"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#fff"
+              d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
+            />
+          </svg>
+          Delete all <span class="all-products-num">(0)</span>
         </button>
       </div>
       <table class="products-table">
@@ -103,6 +149,7 @@
             <td>Title</td>
             <td>Price</td>
             <td>Taxes</td>
+            <td>Ads</td>
             <td>Discount</td>
             <td>Category</td>
             <td>Total</td>
@@ -111,7 +158,7 @@
           </tr>
         </thead>
         <tbody class="products-table-body">
-          <tr>
+          <!-- <tr>
             <td>1</td>
             <td>Iphone 7 plus</td>
             <td>1200$</td>
@@ -151,417 +198,7 @@
                 Delete
               </button>
             </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iphone 7 plus</td>
-            <td>1200$</td>
-            <td>50$</td>
-            <td>0$</td>
-            <td>Apple phones</td>
-            <td>1250$</td>
-            <td class="manipulate-product-spot">
-              <button class="btn-edit-product" title="Edit the product">
-                <svg
-                  fill="#fff"
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.111,2.293,9.384,11.021a.977.977,0,0,0-.241.39L8.052,14.684A1,1,0,0,0,9,16a.987.987,0,0,0,.316-.052l3.273-1.091a.977.977,0,0,0,.39-.241l8.728-8.727a1,1,0,0,0,0-1.414L19.525,2.293A1,1,0,0,0,18.111,2.293ZM11.732,13.035l-1.151.384.384-1.151L16.637,6.6l.767.767Zm7.854-7.853-.768.767-.767-.767.767-.768ZM3,5h8a1,1,0,0,1,0,2H4V20H17V13a1,1,0,0,1,2,0v8a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5Z"
-                  />
-                </svg>
-                Edit
-              </button>
-            </td>
-            <td class="manipulate-product-spot">
-              <button class="btn-delete-product" title="Delete the product">
-                <svg
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#fff"
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
-                  />
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iphone 7 plus</td>
-            <td>1200$</td>
-            <td>50$</td>
-            <td>0$</td>
-            <td>Apple phones</td>
-            <td>1250$</td>
-            <td class="manipulate-product-spot">
-              <button class="btn-edit-product" title="Edit the product">
-                <svg
-                  fill="#fff"
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.111,2.293,9.384,11.021a.977.977,0,0,0-.241.39L8.052,14.684A1,1,0,0,0,9,16a.987.987,0,0,0,.316-.052l3.273-1.091a.977.977,0,0,0,.39-.241l8.728-8.727a1,1,0,0,0,0-1.414L19.525,2.293A1,1,0,0,0,18.111,2.293ZM11.732,13.035l-1.151.384.384-1.151L16.637,6.6l.767.767Zm7.854-7.853-.768.767-.767-.767.767-.768ZM3,5h8a1,1,0,0,1,0,2H4V20H17V13a1,1,0,0,1,2,0v8a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5Z"
-                  />
-                </svg>
-                Edit
-              </button>
-            </td>
-            <td class="manipulate-product-spot">
-              <button class="btn-delete-product" title="Delete the product">
-                <svg
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#fff"
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
-                  />
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iphone 7 plus</td>
-            <td>1200$</td>
-            <td>50$</td>
-            <td>0$</td>
-            <td>Apple phones</td>
-            <td>1250$</td>
-            <td class="manipulate-product-spot">
-              <button class="btn-edit-product" title="Edit the product">
-                <svg
-                  fill="#fff"
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.111,2.293,9.384,11.021a.977.977,0,0,0-.241.39L8.052,14.684A1,1,0,0,0,9,16a.987.987,0,0,0,.316-.052l3.273-1.091a.977.977,0,0,0,.39-.241l8.728-8.727a1,1,0,0,0,0-1.414L19.525,2.293A1,1,0,0,0,18.111,2.293ZM11.732,13.035l-1.151.384.384-1.151L16.637,6.6l.767.767Zm7.854-7.853-.768.767-.767-.767.767-.768ZM3,5h8a1,1,0,0,1,0,2H4V20H17V13a1,1,0,0,1,2,0v8a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5Z"
-                  />
-                </svg>
-                Edit
-              </button>
-            </td>
-            <td class="manipulate-product-spot">
-              <button class="btn-delete-product" title="Delete the product">
-                <svg
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#fff"
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
-                  />
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iphone 7 plus</td>
-            <td>1200$</td>
-            <td>50$</td>
-            <td>0$</td>
-            <td>Apple phones</td>
-            <td>1250$</td>
-            <td class="manipulate-product-spot">
-              <button class="btn-edit-product" title="Edit the product">
-                <svg
-                  fill="#fff"
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.111,2.293,9.384,11.021a.977.977,0,0,0-.241.39L8.052,14.684A1,1,0,0,0,9,16a.987.987,0,0,0,.316-.052l3.273-1.091a.977.977,0,0,0,.39-.241l8.728-8.727a1,1,0,0,0,0-1.414L19.525,2.293A1,1,0,0,0,18.111,2.293ZM11.732,13.035l-1.151.384.384-1.151L16.637,6.6l.767.767Zm7.854-7.853-.768.767-.767-.767.767-.768ZM3,5h8a1,1,0,0,1,0,2H4V20H17V13a1,1,0,0,1,2,0v8a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5Z"
-                  />
-                </svg>
-                Edit
-              </button>
-            </td>
-            <td class="manipulate-product-spot">
-              <button class="btn-delete-product" title="Delete the product">
-                <svg
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#fff"
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
-                  />
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iphone 7 plus</td>
-            <td>1200$</td>
-            <td>50$</td>
-            <td>0$</td>
-            <td>Apple phones</td>
-            <td>1250$</td>
-            <td class="manipulate-product-spot">
-              <button class="btn-edit-product" title="Edit the product">
-                <svg
-                  fill="#fff"
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.111,2.293,9.384,11.021a.977.977,0,0,0-.241.39L8.052,14.684A1,1,0,0,0,9,16a.987.987,0,0,0,.316-.052l3.273-1.091a.977.977,0,0,0,.39-.241l8.728-8.727a1,1,0,0,0,0-1.414L19.525,2.293A1,1,0,0,0,18.111,2.293ZM11.732,13.035l-1.151.384.384-1.151L16.637,6.6l.767.767Zm7.854-7.853-.768.767-.767-.767.767-.768ZM3,5h8a1,1,0,0,1,0,2H4V20H17V13a1,1,0,0,1,2,0v8a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5Z"
-                  />
-                </svg>
-                Edit
-              </button>
-            </td>
-            <td class="manipulate-product-spot">
-              <button class="btn-delete-product" title="Delete the product">
-                <svg
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#fff"
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
-                  />
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iphone 7 plus</td>
-            <td>1200$</td>
-            <td>50$</td>
-            <td>0$</td>
-            <td>Apple phones</td>
-            <td>1250$</td>
-            <td class="manipulate-product-spot">
-              <button class="btn-edit-product" title="Edit the product">
-                <svg
-                  fill="#fff"
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.111,2.293,9.384,11.021a.977.977,0,0,0-.241.39L8.052,14.684A1,1,0,0,0,9,16a.987.987,0,0,0,.316-.052l3.273-1.091a.977.977,0,0,0,.39-.241l8.728-8.727a1,1,0,0,0,0-1.414L19.525,2.293A1,1,0,0,0,18.111,2.293ZM11.732,13.035l-1.151.384.384-1.151L16.637,6.6l.767.767Zm7.854-7.853-.768.767-.767-.767.767-.768ZM3,5h8a1,1,0,0,1,0,2H4V20H17V13a1,1,0,0,1,2,0v8a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5Z"
-                  />
-                </svg>
-                Edit
-              </button>
-            </td>
-            <td class="manipulate-product-spot">
-              <button class="btn-delete-product" title="Delete the product">
-                <svg
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#fff"
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
-                  />
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iphone 7 plus</td>
-            <td>1200$</td>
-            <td>50$</td>
-            <td>0$</td>
-            <td>Apple phones</td>
-            <td>1250$</td>
-            <td class="manipulate-product-spot">
-              <button class="btn-edit-product" title="Edit the product">
-                <svg
-                  fill="#fff"
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.111,2.293,9.384,11.021a.977.977,0,0,0-.241.39L8.052,14.684A1,1,0,0,0,9,16a.987.987,0,0,0,.316-.052l3.273-1.091a.977.977,0,0,0,.39-.241l8.728-8.727a1,1,0,0,0,0-1.414L19.525,2.293A1,1,0,0,0,18.111,2.293ZM11.732,13.035l-1.151.384.384-1.151L16.637,6.6l.767.767Zm7.854-7.853-.768.767-.767-.767.767-.768ZM3,5h8a1,1,0,0,1,0,2H4V20H17V13a1,1,0,0,1,2,0v8a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5Z"
-                  />
-                </svg>
-                Edit
-              </button>
-            </td>
-            <td class="manipulate-product-spot">
-              <button class="btn-delete-product" title="Delete the product">
-                <svg
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#fff"
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
-                  />
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iphone 7 plus</td>
-            <td>1200$</td>
-            <td>50$</td>
-            <td>0$</td>
-            <td>Apple phones</td>
-            <td>1250$</td>
-            <td class="manipulate-product-spot">
-              <button class="btn-edit-product" title="Edit the product">
-                <svg
-                  fill="#fff"
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.111,2.293,9.384,11.021a.977.977,0,0,0-.241.39L8.052,14.684A1,1,0,0,0,9,16a.987.987,0,0,0,.316-.052l3.273-1.091a.977.977,0,0,0,.39-.241l8.728-8.727a1,1,0,0,0,0-1.414L19.525,2.293A1,1,0,0,0,18.111,2.293ZM11.732,13.035l-1.151.384.384-1.151L16.637,6.6l.767.767Zm7.854-7.853-.768.767-.767-.767.767-.768ZM3,5h8a1,1,0,0,1,0,2H4V20H17V13a1,1,0,0,1,2,0v8a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5Z"
-                  />
-                </svg>
-                Edit
-              </button>
-            </td>
-            <td class="manipulate-product-spot">
-              <button class="btn-delete-product" title="Delete the product">
-                <svg
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#fff"
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
-                  />
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iphone 7 plus</td>
-            <td>1200$</td>
-            <td>50$</td>
-            <td>0$</td>
-            <td>Apple phones</td>
-            <td>1250$</td>
-            <td class="manipulate-product-spot">
-              <button class="btn-edit-product" title="Edit the product">
-                <svg
-                  fill="#fff"
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.111,2.293,9.384,11.021a.977.977,0,0,0-.241.39L8.052,14.684A1,1,0,0,0,9,16a.987.987,0,0,0,.316-.052l3.273-1.091a.977.977,0,0,0,.39-.241l8.728-8.727a1,1,0,0,0,0-1.414L19.525,2.293A1,1,0,0,0,18.111,2.293ZM11.732,13.035l-1.151.384.384-1.151L16.637,6.6l.767.767Zm7.854-7.853-.768.767-.767-.767.767-.768ZM3,5h8a1,1,0,0,1,0,2H4V20H17V13a1,1,0,0,1,2,0v8a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5Z"
-                  />
-                </svg>
-                Edit
-              </button>
-            </td>
-            <td class="manipulate-product-spot">
-              <button class="btn-delete-product" title="Delete the product">
-                <svg
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#fff"
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
-                  />
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iphone 7 plus</td>
-            <td>1200$</td>
-            <td>50$</td>
-            <td>0$</td>
-            <td>Apple phones</td>
-            <td>1250$</td>
-            <td class="manipulate-product-spot">
-              <button class="btn-edit-product" title="Edit the product">
-                <svg
-                  fill="#fff"
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.111,2.293,9.384,11.021a.977.977,0,0,0-.241.39L8.052,14.684A1,1,0,0,0,9,16a.987.987,0,0,0,.316-.052l3.273-1.091a.977.977,0,0,0,.39-.241l8.728-8.727a1,1,0,0,0,0-1.414L19.525,2.293A1,1,0,0,0,18.111,2.293ZM11.732,13.035l-1.151.384.384-1.151L16.637,6.6l.767.767Zm7.854-7.853-.768.767-.767-.767.767-.768ZM3,5h8a1,1,0,0,1,0,2H4V20H17V13a1,1,0,0,1,2,0v8a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V6A1,1,0,0,1,3,5Z"
-                  />
-                </svg>
-                Edit
-              </button>
-            </td>
-            <td class="manipulate-product-spot">
-              <button class="btn-delete-product" title="Delete the product">
-                <svg
-                  width="25px"
-                  height="25px"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#fff"
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z"
-                  />
-                </svg>
-                Delete
-              </button>
-            </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
