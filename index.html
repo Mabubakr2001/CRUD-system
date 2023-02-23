@@ -14,7 +14,7 @@
       <p class="app-name">Products store</p>
     </header>
     <div class="app-container">
-      <form class="create-product" autocomplete="off">
+      <div class="create-product">
         <input type="text" value="" placeholder="Title" class="input-title" />
         <input
           type="number"
@@ -61,10 +61,21 @@
           placeholder="Category"
           class="input-category"
         />
-        <button class="btn-create-product" title="Create a new product">
+        <button
+          class="btn-create-product"
+          title="Create a new product"
+          data-state="visible"
+        >
           Create product
         </button>
-      </form>
+        <button
+          class="btn-update-product"
+          title="Update the product"
+          data-state="hidden"
+        >
+          Update product
+        </button>
+      </div>
       <div class="search-product">
         <input
           class="search-input"
@@ -183,6 +194,15 @@
           </tr> -->
         </tbody>
       </table>
+      <div class="overlay" data-state="hidden"></div>
+      <div class="deletion-window" data-state="hidden">
+        <p class="deletion-question">Are you sure you want to do that?</p>
+        <div class="decision">
+          <button class="btn-yes btn-yes-single" title="Apply">Yes</button>
+          <button class="btn-yes btn-yes-all" title="Apply">Yes</button>
+          <button class="btn-no" title="Undo">No</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
