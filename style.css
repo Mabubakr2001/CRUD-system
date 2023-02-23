@@ -372,3 +372,19 @@ thead > tr > td {
 .btn-yes[data-state="hidden"] {
   display: none;
 }
+
+.copyrights {
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.copyrights a {
+  color: #fff;
+  font-weight: 500;
+}
+
+.copyrights a:visited {
+  color: #dadada;
+}
