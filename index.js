@@ -150,7 +150,7 @@ function createNewProduct(productInfoArr) {
   allProductsNum.textContent = `(${productsCounter})`;
 
   for (let i = 0; i < +productCount; i++) {
-    const randomProductID = Math.floor(Math.random() * 1000000);
+    const randomProductID = Math.floor(Math.random() * 100000000);
     generateProductMarkup([
       randomProductID,
       productName,
