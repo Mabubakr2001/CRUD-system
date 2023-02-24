@@ -58,7 +58,7 @@ function interactWithLocalStorage(interactMethod) {
     return JSON.parse(localStorage.getItem("allProducts"));
 }
 
-function createNewProduct(fromLocalStorage = undefined, ...productProperties) {
+function createNewProduct(fromLocalStorage = false, ...productProperties) {
   const [
     productID,
     productName,
@@ -71,7 +71,7 @@ function createNewProduct(fromLocalStorage = undefined, ...productProperties) {
     productCategory,
   ] = productProperties;
 
-  productsCounter += +productCount;
+  productsCounter++;
   allProductsNum.textContent = `(${productsCounter})`;
 
   const markup = `
@@ -363,7 +363,7 @@ btnCreateProduct.addEventListener("click", (event) => {
   const randomProductID = Math.floor(Math.random() * 100000000).toString();
 
   createNewProduct(
-    undefined,
+    false,
     randomProductID,
     titleInput.value,
     priceInput.value,
