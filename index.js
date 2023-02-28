@@ -463,8 +463,8 @@ btnUndo.addEventListener("click", () => manipulateDeletionView("Hide"));
 
 overlay.addEventListener("click", () => manipulateDeletionView("Hide"));
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && deletionWindow.dataset.state === "visible")
+window.addEventListener("keydown", ({ key }) => {
+  if (key === "Escape" && deletionWindow.dataset.state === "visible")
     manipulateDeletionView("Hide");
 });
 
