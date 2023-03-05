@@ -82,7 +82,9 @@ function createNewProduct(fromLocalStorage = false, ...productProperties) {
     <td class="taxes">${productTaxes !== "" ? productTaxes : "0"}</td>
     <td class="ads">${productAds !== "" ? productAds : "0"}</td>
     <td class="discount">${productDiscount !== "" ? productDiscount : "0"}</td>
-    <td class="count">${productCount}</td>
+    <td class="count">${productCount} ${
+    +productCount === 1 ? "piece" : "pieces"
+  }</td>
     <td class="category">${
       productCategory !== "" ? productCategory : "No category"
     }</td>
@@ -240,7 +242,9 @@ function editTheProduct(productID) {
     discountInput.value !== "" ? discountInput.value : "0";
   targetProductElement.querySelector(".total").textContent =
     totalPriceSpot.textContent;
-  targetProductElement.querySelector(".count").textContent = countInput.value;
+  targetProductElement.querySelector(".count").textContent = `${
+    countInput.value
+  } ${+countInput.value === 1 ? "piece" : "pieces"}`;
   targetProductElement.querySelector(".category").textContent =
     categoryInput.value !== "" ? categoryInput.value : "No category";
 
