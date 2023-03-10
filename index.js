@@ -83,7 +83,7 @@ function createNewProduct(fromLocalStorage = false, ...productProperties) {
     <td class="ads">${productAds !== "" ? productAds : "0"}</td>
     <td class="discount">${productDiscount !== "" ? productDiscount : "0"}</td>
     <td class="count">${productCount} ${
-    +productCount === 1 ? "piece" : "pieces"
+    +productCount === 1 ? "item" : "items"
   }</td>
     <td class="category">${
       productCategory !== "" ? productCategory : "No category"
@@ -165,7 +165,7 @@ function searchForProduct(searchOption) {
         break;
       case "id":
         const id = product.querySelector(".id").textContent;
-        id.startsWith(searchQuery)
+        id.includes(searchQuery)
           ? (product.dataset.state = "visible")
           : (product.dataset.state = "hidden");
         break;
@@ -244,7 +244,7 @@ function editTheProduct(productID) {
     totalPriceSpot.textContent;
   targetProductElement.querySelector(".count").textContent = `${
     countInput.value
-  } ${+countInput.value === 1 ? "piece" : "pieces"}`;
+  } ${+countInput.value === 1 ? "item" : "items"}`;
   targetProductElement.querySelector(".category").textContent =
     categoryInput.value !== "" ? categoryInput.value : "No category";
 
